@@ -11,8 +11,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class FindUserDetailsByIdStep {
 
+    /**
+     * The API interface for the user profile controller operations.
+     */
     private final UserProfileControllerApi controllerApi;
 
+    /**
+     * Initiates a request to find user details by the specified ID.
+     *
+     * @param id The ID of the user whose details are to be retrieved.
+     */
     @When("a client wants to find its contacts with id: {long}")
     public void findUserById(long id) {
         final TestContext response = HttpRequestExceptionResolver.sendRequest(

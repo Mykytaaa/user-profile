@@ -10,6 +10,13 @@ import java.util.function.Supplier;
 @UtilityClass
 public class HttpRequestExceptionResolver {
 
+    /**
+     * Sends a request using the provided supplier function and constructs a TestContext based on the response.
+     *
+     * @param request A supplier function providing the request to be executed.
+     * @param operationType The type of operation being performed.
+     * @return A TestContext containing the response information.
+     */
     public TestContext sendRequest(Supplier<ResponseEntity<?>> request, UserProfileOperationType operationType) {
         try {
             return new TestContext(request.get(), operationType);

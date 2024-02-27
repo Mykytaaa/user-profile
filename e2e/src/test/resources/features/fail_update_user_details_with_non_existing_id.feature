@@ -14,6 +14,6 @@ Feature: Error while updating non existing user details
     Then response code is 404
 
     And response body contains:
-      | status                       | 404                                     |
-      | message                      | Resource not found                      |
-      | details                      | User Details not found with id: 1000    |
+      | status                       | 404                                                       |
+      | message                      | Resource not found                                        |
+      | details                      | User Details not found user details with user id: 1000    |

@@ -12,10 +12,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RequiredArgsConstructor
 public class UserServiceAvailableStepDef {
 
+    /**
+     * API interface for interacting with the Actuator endpoints.
+     */
     private final ActuatorApi actuatorApi;
 
+    /**
+     * Helper class for JSON serialization tasks.
+     */
     private final JsonSerializationHelper jsonHelper;
 
+    /**
+     * Checks if the User Profile Service is up and running by verifying its health status.
+     * It asserts that the service status is "UP".
+     */
     @Given("User Profile Service is up and running")
     public void upServiceIsUpAndRunning() {
         final var health = actuatorApi.health();
@@ -24,6 +34,13 @@ public class UserServiceAvailableStepDef {
         assertThat(actualStatus).isEqualTo("UP");
     }
 
+    /**
+     * Verifies the availability of a specific User Profile endpoint with the given URL and HTTP method.
+     * It checks if the endpoint is listed among the service mappings.
+     *
+     * @param url The URL of the endpoint.
+     * @param httpMethod The HTTP method used by the endpoint.
+     */
     @And("User Profile endpoint {string} with http method {string} available")
     public void userEndpointAvailable(String url, String httpMethod) {
         final var mappings = actuatorApi.mappings();

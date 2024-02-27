@@ -13,8 +13,17 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UpdateUserStep {
 
+    /**
+     * The API interface for the user profile controller.
+     */
     private final UserProfileControllerApi userProfileControllerApi;
 
+    /**
+     * Initiates a request to update a user with the specified ID using the provided data.
+     *
+     * @param id The ID of the user to update.
+     * @param dataTable The DataTable containing the updated user information.
+     */
     @When("a client wants to update a user with id: {long}")
     public void updateUser(long id, DataTable dataTable) {
         final UserUpdateRequestDto requestDto = ModelMapper.toUserUpdateRequestDto(dataTable);

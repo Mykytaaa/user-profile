@@ -16,4 +16,12 @@ public interface UserDetailsRepository extends JpaRepository<UserDetails, Long> 
      * @return Optional UserDetails if found, otherwise Optional#empty().
      */
     Optional<UserDetails> findUserDetailsByUserId(long user);
+
+    /**
+     * Checks if a UserDetails with the given ID exists.
+     *
+     * @param id The ID to check for existence.
+     * @return {@code true} if an entity with the given ID exists, {@code false} otherwise.
+     */
+    boolean existsById(long id);
 }

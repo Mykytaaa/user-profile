@@ -115,4 +115,30 @@ public class UserService {
     public Page<User> findAll(Pageable pageable) {
         return userRepository.findAll(pageable);
     }
+
+    /**
+     * Checks if a user exists based on the provided ID.
+     *
+     * @param id The ID of the user to check.
+     * @throws ResourceNotFoundException If the user does not exist.
+     */
+    public void checkIfUserExists(long id) {
+        if (!userRepository.existsById(id)) {
+            throw new ResourceNotFoundException(
+                    ResourceNotFoundException.ErrorMessage.ofId(USER_DOMAIN_NAME, id));
+        }
+    }
+
+    /**
+     * Checks if user details exist based on the provided ID.
+     *
+     * @param id The ID of the user details to check.
+     * @throws ResourceNotFoundException If the user details do not exist.
+     */
+    public void checkIfUserDetailsExists(long id) {
+        if (!userDetailsRepository.existsById(id)) {
+            throw new ResourceNotFoundException(
+                    ResourceNotFoundException.ErrorMessage.ofUserDetailsByUserId(USER_DETAILS_DOMAIN_NAME, id));
+        }
+    }
 }

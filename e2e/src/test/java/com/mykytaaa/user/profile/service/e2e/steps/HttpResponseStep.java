@@ -13,14 +13,27 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RequiredArgsConstructor
 public class HttpResponseStep {
 
+    /**
+     * Factory for generating DTO assert handlers.
+     */
     private final FactoryDtoAssertHandler factoryDtoAssertHandler;
 
+    /**
+     * Verifies that the actual HTTP response code matches the expected status code.
+     *
+     * @param expectedStatusCode The expected HTTP status code.
+     */
     @Then("response code is {int}")
     public void responseCodeIs(int expectedStatusCode) {
-        int actualStatusCode = TestContextStorage.getTestContext().getStatusCode();
+        final int actualStatusCode = TestContextStorage.getTestContext().getStatusCode();
         assertThat(actualStatusCode).isEqualTo(expectedStatusCode);
     }
 
+    /**
+     * Asserts that the response body contains the expected data as specified in the DataTable.
+     *
+     * @param dataTable The DataTable containing expected data to be validated against the response body.
+     */
     @And("response body contains:")
     public void responseBodyContains(DataTable dataTable) {
         final TestContext responseContext = TestContextStorage.getTestContext();

@@ -1,6 +1,7 @@
 package com.mykytaaa.user.profile.userprofileservice.rest.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -19,6 +20,7 @@ public record UserCreateRequestDto(
         @Email(message = "Please provide a valid email address")
         @Size(max = 255)
         String email,
+        @Valid
         @Schema(description = "Details for creating a user")
         @NotNull
         UserDetailsCreateRequestDto userDetailsCreateRequestDto
