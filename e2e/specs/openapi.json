@@ -317,7 +317,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref":"#/components/schemas/UserResponseDto"
+                  "$ref":"#/components/schemas/UserDetailsResponseDto"
                 }
               }
             }

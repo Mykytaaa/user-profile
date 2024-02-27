@@ -3,6 +3,7 @@ package com.mykytaaa.user.profile.service.e2e.util;
 import com.mykytaaa.user.profile.service.e2e.generated.model.ApiErrorDto;
 import com.mykytaaa.user.profile.service.e2e.generated.model.UserDetailsResponseDto;
 import com.mykytaaa.user.profile.service.e2e.generated.model.UserDetailsUpdateDto;
+import com.mykytaaa.user.profile.service.e2e.generated.model.UserDetailsUpdateRequestDto;
 import com.mykytaaa.user.profile.service.e2e.generated.model.UserResponseDto;
 import com.mykytaaa.user.profile.service.e2e.generated.model.UserUpdateRequestDto;
 import io.cucumber.datatable.DataTable;
@@ -67,6 +68,16 @@ public class ModelMapper {
         final var entry = dataTable.asMap();
 
         return UserDetailsResponseDto.builder()
+                .id(Long.valueOf(entry.get("id")))
+                .phoneNumber(entry.get("phone_number"))
+                .telegramId(entry.get("telegram_id"))
+                .build();
+    }
+
+    public UserDetailsUpdateRequestDto toUserDetailsUpdateRequestDto(DataTable dataTable) {
+        final var entry = dataTable.asMap();
+
+        return UserDetailsUpdateRequestDto.builder()
                 .id(Long.valueOf(entry.get("id")))
                 .phoneNumber(entry.get("phone_number"))
                 .telegramId(entry.get("telegram_id"))

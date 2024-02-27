@@ -17,7 +17,8 @@ public class FactoryDtoAssertHandler {
                 UserProfileOperationType.FIND_BY_ID, userProfileDtoAssertion,
                 UserProfileOperationType.ERROR, apiErrorResponseAssertion,
                 UserProfileOperationType.UPDATE_USER, userProfileDtoAssertion,
-                UserProfileOperationType.FIND_USER_DETAILS_BY_ID, userDetailsProfileDtoAssertion
+                UserProfileOperationType.FIND_USER_DETAILS_BY_ID, userDetailsProfileDtoAssertion,
+                UserProfileOperationType.UPDATE_USER_DETAILS, userDetailsProfileDtoAssertion
         );
     }
 

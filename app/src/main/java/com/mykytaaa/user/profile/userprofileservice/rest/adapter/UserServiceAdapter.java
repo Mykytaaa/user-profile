@@ -139,6 +139,7 @@ public class UserServiceAdapter {
      * @return The updated UserDetailsResponseDto.
      */
     public UserDetailsResponseDto updateUserDetails(UserDetailsUpdateRequestDto userDetailsUpdateRequestDto) {
+        checkExistenceUserDetails(userDetailsUpdateRequestDto.getId());
         final UserDetails userDetails = userDetailsUpdateRequestMapper.toUserDetails(userDetailsUpdateRequestDto);
         userService.save(userDetails);
         return userDetailsResponseMapper.toUserDetailsResponseDto(userDetails);
@@ -146,5 +147,9 @@ public class UserServiceAdapter {
 
     private void checkExistenceSourceById(long id) {
         userService.findUserById(id);
+    }
+
+    private void checkExistenceUserDetails(long id) {
+        userService.findUserDetailsById(id);
     }
 }
