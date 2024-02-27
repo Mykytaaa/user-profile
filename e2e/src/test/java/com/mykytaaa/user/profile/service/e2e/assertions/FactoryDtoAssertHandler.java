@@ -11,11 +11,13 @@ public class FactoryDtoAssertHandler {
     private final Map<UserProfileOperationType, DtoAssertHandler> dtoAssertHandlerMap;
 
     public FactoryDtoAssertHandler(UserProfileDtoAssertion userProfileDtoAssertion,
-                                   ApiErrorResponseAssertion apiErrorResponseAssertion) {
+                                   ApiErrorResponseAssertion apiErrorResponseAssertion,
+                                   UserDetailsProfileDtoAssertion userDetailsProfileDtoAssertion) {
         this.dtoAssertHandlerMap = Map.of(
                 UserProfileOperationType.FIND_BY_ID, userProfileDtoAssertion,
                 UserProfileOperationType.ERROR, apiErrorResponseAssertion,
-                UserProfileOperationType.UPDATE_USER, userProfileDtoAssertion
+                UserProfileOperationType.UPDATE_USER, userProfileDtoAssertion,
+                UserProfileOperationType.FIND_USER_DETAILS_BY_ID, userDetailsProfileDtoAssertion
         );
     }
 

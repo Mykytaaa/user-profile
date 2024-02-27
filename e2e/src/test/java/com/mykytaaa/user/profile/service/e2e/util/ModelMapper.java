@@ -62,4 +62,14 @@ public class ModelMapper {
                         .build())
                 .build();
     }
+
+    public UserDetailsResponseDto toUserDetailsResponseDto(DataTable dataTable) {
+        final var entry = dataTable.asMap();
+
+        return UserDetailsResponseDto.builder()
+                .id(Long.valueOf(entry.get("id")))
+                .phoneNumber(entry.get("phone_number"))
+                .telegramId(entry.get("telegram_id"))
+                .build();
+    }
 }
