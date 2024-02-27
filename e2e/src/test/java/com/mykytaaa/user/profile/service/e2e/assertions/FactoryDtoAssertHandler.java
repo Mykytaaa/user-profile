@@ -14,7 +14,8 @@ public class FactoryDtoAssertHandler {
                                    ApiErrorResponseAssertion apiErrorResponseAssertion) {
         this.dtoAssertHandlerMap = Map.of(
                 UserProfileOperationType.FIND_BY_ID, userProfileDtoAssertion,
-                UserProfileOperationType.ERROR, apiErrorResponseAssertion
+                UserProfileOperationType.ERROR, apiErrorResponseAssertion,
+                UserProfileOperationType.UPDATE_USER, userProfileDtoAssertion
         );
     }
 
