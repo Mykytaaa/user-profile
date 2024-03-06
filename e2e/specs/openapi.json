@@ -696,6 +696,7 @@
         "properties": {
           "id": {
             "type": "integer",
+            "format": "int64",
             "description": "The unique identifier of the user."
           },
           "firstName": {
@@ -730,6 +731,7 @@
         "properties": {
           "id": {
             "type": "integer",
+            "format": "int64",
             "description": "The unique identifier of the user details."
           },
           "phoneNumber": {
@@ -757,6 +759,7 @@
         "properties": {
           "id": {
             "type": "integer",
+            "format": "int64",
             "description": "The unique identifier of the user."
           },
           "firstName": {
@@ -788,6 +791,7 @@
         "properties": {
           "id": {
             "type": "integer",
+            "format": "int64",
             "description": "The unique identifier of the user details."
           },
           "phoneNumber": {
@@ -850,6 +854,7 @@
         "properties": {
           "id": {
             "type": "integer",
+            "format": "int64",
             "description": "The unique identifier of the user details."
           },
           "phoneNumber": {
