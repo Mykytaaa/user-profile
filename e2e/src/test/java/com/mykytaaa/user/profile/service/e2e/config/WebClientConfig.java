@@ -38,10 +38,17 @@ public class WebClientConfig {
      */
     private final TLS tlsVersion;
 
+    /**
+     * Constructs a new WebClientConfig with specified SSL settings.
+     *
+     * @param trustStore the resource path to the SSL trust store.
+     * @param trustStorePassword the password for the SSL trust store.
+     * @param tlsVersion the TLS version to use for SSL connections.
+     */
     public WebClientConfig(
-            @Value("${user-profile-service.ssl.trust-store}") Resource trustStore,
-            @Value("${user-profile-service.ssl.trust-store-password}") String trustStorePassword,
-            @Value("${user-profile-service.ssl.version}") TLS tlsVersion
+            @Value("${user-profile-service.ssl.trust-store}") final Resource trustStore,
+            @Value("${user-profile-service.ssl.trust-store-password}") final String trustStorePassword,
+            @Value("${user-profile-service.ssl.version}") final TLS tlsVersion
     ) {
         this.trustStore = trustStore;
         this.trustStorePassword = trustStorePassword;

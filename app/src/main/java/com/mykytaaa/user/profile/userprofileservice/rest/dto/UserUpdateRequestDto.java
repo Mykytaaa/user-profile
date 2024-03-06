@@ -1,6 +1,7 @@
 package com.mykytaaa.user.profile.userprofileservice.rest.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -51,5 +52,6 @@ public class UserUpdateRequestDto {
      * Details for updating user details.
      */
     @Schema(description = "Details for updating user details")
+    @Valid
     private UserDetailsUpdateDto userDetailsUpdateDto;
 }
